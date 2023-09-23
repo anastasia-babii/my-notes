@@ -1,14 +1,5 @@
-import {
-  Entity,
-  PrimaryColumn,
-  Column,
-  BeforeInsert,
-  PrimaryGeneratedColumn,
-  BeforeUpdate,
-} from "typeorm";
-import bcrypt from "bcrypt";
-
-const saltRounds = 10;
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Note } from "../notes/note.entity";
 
 @Entity()
 export class User {
@@ -29,4 +20,7 @@ export class User {
 
   @Column({ type: "varchar", length: 255 })
   password: string;
+
+  @OneToMany(() => Note, (note) => note.user)
+  notes: Note[];
 }

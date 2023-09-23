@@ -12,6 +12,7 @@ export interface MulterRequest extends Request {
 
 export interface UserPayload {
   email: string;
+  id: string;
 }
 
 export interface CompareHashesArgs {

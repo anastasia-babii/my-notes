@@ -74,4 +74,14 @@ export class UserService {
 
     return user;
   }
+
+  async getUserById(id: string): Promise<User> {
+    const user = await this.userRepository.findOne({ where: { id } });
+
+    if (!user) {
+      throw new NotFoundError(ErrorMessages.UserNotFound);
+    }
+
+    return user;
+  }
 }

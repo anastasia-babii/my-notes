@@ -27,6 +27,6 @@ export const authMiddleware = (
     req.user = jwt.verify(token, tokenService.secretKey);
     next();
   } catch (e) {
-    throw new Unauthorized(ErrorMessages.InvalidToken);
+    next(new Unauthorized(ErrorMessages.InvalidToken));
   }
 };

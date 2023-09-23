@@ -10,6 +10,7 @@ import { AppDataSource } from "./datasource";
 import { authRouter } from "./auth/auth.controller";
 import ValidationHTTPError from "./error/http-error-validation";
 import { protectedRoute } from "./routes/token-verification.router";
+import { noteRouter } from "./notes/note.controller";
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use("/lesson2", lesson2Router);
 app.use("/user", userRouter);
 app.use("/auth", authRouter);
 app.use("/protected-route", protectedRoute);
+app.use("/note", noteRouter);
 
 app.use("/lesson2", express.static("static"));
 

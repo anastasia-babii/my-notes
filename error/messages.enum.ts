@@ -5,5 +5,6 @@ export enum ErrorMessages {
   NoTokenProvided = "No token provided",
   InvalidTokenFormat = "Invalid token format",
   InvalidToken = "Invalid token",
+  NoteNotFound = "Note not found",
   UserNotFound = "User not found. The requested user could not be located.",
 }

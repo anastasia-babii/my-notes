@@ -1,5 +1,7 @@
 import { DataSource } from "typeorm";
+import { SnakeNamingStrategy } from "typeorm-naming-strategies";
 import { User } from "./user/user.entity";
+import { Note } from "./notes/note.entity";
 
 export const AppDataSource = new DataSource({
   type: "postgres",
@@ -10,5 +12,6 @@ export const AppDataSource = new DataSource({
   database: "nastyadb",
   synchronize: true,
   logging: false,
-  entities: [User],
+  entities: [User, Note],
+  namingStrategy: new SnakeNamingStrategy(),
 });

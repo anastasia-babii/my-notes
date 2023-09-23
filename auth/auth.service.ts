@@ -32,6 +32,7 @@ export class AuthService {
     const tokenService = new TokenService();
     return tokenService.sign({
       email,
+      id: user.id,
     });
   }
 
@@ -47,7 +48,7 @@ export class AuthService {
     const hashService = new HashService();
     const hashedPassword = await hashService.hash(password);
 
-    await this.userRepo.save({
+    const user = await this.userRepo.save({
       email,
       phone,
       firstName,
@@ -59,6 +60,7 @@ export class AuthService {
 
     return tokenService.sign({
       email,
+      id: user.id,
     });
   }
 }
